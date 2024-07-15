@@ -1,14 +1,17 @@
 import java.util.Scanner;
 
-public class BirthDateTime {
-    public static void main(String[] args) {
+public class BirthDateTime
+{
+    public static void main(String[] args)
+    {
         Scanner in = new Scanner(System.in);
         int year = SafeInput.getRangedInt(in, "Please enter the year of birth", 1950, 2015);
         int month = SafeInput.getRangedInt(in, "Please enter the month of birth", 1, 12);
 
         // Determine days in the month
         int maxDays;
-        switch (month) {
+        switch (month)
+        {
             case 2:
                 maxDays = 29; // Assuming leap year is handled separately
                 break;
