@@ -21,3 +21,23 @@ public class SafeInput
 
         return retString;
     }
+    public static int getInt(Scanner pipe, String prompt)
+    {
+        int value = 0;
+        boolean isValid = false;
+        do
+        {
+            System.out.print("\n" + prompt + ": ");
+            if (pipe.hasNextInt())
+            {
+                value = pipe.nextInt();
+                isValid = true;
+            } else
+            {
+                System.out.println("Invalid input. Please enter an integer.");
+                pipe.nextLine(); // clear the invalid input
+            }
+        } while (!isValid);
+        pipe.nextLine(); // clear newline from Scanner buffer
+        return value;
+    }
