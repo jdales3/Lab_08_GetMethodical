@@ -41,3 +41,26 @@ public class SafeInput
         pipe.nextLine(); // clear newline from Scanner buffer
         return value;
     }
+    public static double getDouble(Scanner pipe, String prompt)
+    {
+        double value = 0.0;
+        boolean isValid = false;
+        do
+        {
+            System.out.print("\n" + prompt + ": ");
+            if (pipe.hasNextDouble())
+            {
+                value = pipe.nextDouble();
+                isValid = true;
+            }
+            else
+            {
+                System.out.println("Invalid input. Please enter a double.");
+                pipe.nextLine(); // clear the invalid input
+            }
+        }
+        while (!isValid);
+        pipe.nextLine(); // clear newline from Scanner buffer
+        return value;
+    }
+
