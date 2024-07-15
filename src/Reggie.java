@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Reggie {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Scanner in = new Scanner(System.in);
 
         // Test for SSN pattern: ^\d{3}-\d{2}-\d{4}$
@@ -14,7 +15,8 @@ public class Reggie {
 
         // Test for menu choice pattern: ^[OoSsVvQq]$
         String menuChoice = SafeInput.getRegExString(in, "Please enter your menu choice (O, S, V, Q)", "^[OoSsVvQq]$");
-        switch (menuChoice.toUpperCase()) {
+        switch (menuChoice.toUpperCase())
+        {
             case "O":
                 System.out.println("Menu choice: Open");
                 break;
@@ -33,7 +35,8 @@ public class Reggie {
         testInvalidInputs(in);
     }
 
-    private static void testInvalidInputs(Scanner in) {
+    private static void testInvalidInputs(Scanner in)
+    {
         // Test invalid SSNs
         System.out.println("\nTesting invalid SSNs:");
         String[] invalidSSNs = {"123-45-6789", "123456789", "ABC-12-3456"};
@@ -45,7 +48,8 @@ public class Reggie {
         // Test invalid M numbers
         System.out.println("\nTesting invalid M numbers:");
         String[] invalidMNumbers = {"M123", "M123456", "A12345"};
-        for (String mNumber : invalidMNumbers) {
+        for (String mNumber : invalidMNumbers)
+        {
             String result = SafeInput.getRegExString(in, "Please enter an invalid M number", "^(M|m)\\d{5}$");
             System.out.println("You entered: " + result);
         }
