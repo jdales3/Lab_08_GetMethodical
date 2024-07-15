@@ -164,15 +164,7 @@ public class SafeInput
         while (!isValid);
         return value;
     }
-    public class SafeInput {
 
-        // Existing methods are here...
-
-        /**
-         * Generates a pretty header with a centered message.
-         *
-         * @param msg The message to be centered in the header.
-         */
         public static void prettyHeader(String msg)
         {
             final int HEADER_WIDTH = 60;
