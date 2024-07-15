@@ -164,16 +164,58 @@ public class SafeInput
         while (!isValid);
         return value;
     }
-    public static void prettyHeader(String msg)
-    {
-        int totalWidth = 60;
-        int msgWidth = msg.length() + 6; // Including stars and spaces
-        int sideSpaces = (totalWidth - msgWidth) / 2;
+    public class SafeInput {
 
-        System.out.println("*".repeat(totalWidth));
-        System.out.println("***" + " ".repeat(sideSpaces) + msg + " ".repeat(sideSpaces) + "***");
-        System.out.println("*".repeat(totalWidth));
-    }
+        // Existing methods are here...
+
+        /**
+         * Generates a pretty header with a centered message.
+         *
+         * @param msg The message to be centered in the header.
+         */
+        public static void prettyHeader(String msg)
+        {
+            final int HEADER_WIDTH = 60;
+            int msgLength = msg.length();
+
+            // Calculate spaces needed on each side of the message
+            int spacesNeeded = (HEADER_WIDTH - msgLength - 6) / 2; // 6 for the stars and spaces around msg
+            int leftSpaces = spacesNeeded;
+            int rightSpaces = spacesNeeded;
+
+            // If odd number of spaces needed, add an extra space to the right
+            if ((HEADER_WIDTH - msgLength - 6) % 2 != 0)
+            {
+                rightSpaces++;
+            }
+
+            // Print the header
+            for (int i = 0; i < HEADER_WIDTH; i++)
+            {
+                System.out.print("*");
+            }
+            System.out.println(); // Move to the next line
+
+            // Print the centered message line
+            System.out.print("***");
+            for (int i = 0; i < leftSpaces; i++)
+            {
+                System.out.print(" ");
+            }
+            System.out.print(msg);
+            for (int i = 0; i < rightSpaces; i++)
+            {
+                System.out.print(" ");
+            }
+            System.out.println("***");
+
+            // Print the footer line
+            for (int i = 0; i < HEADER_WIDTH; i++)
+            {
+                System.out.print("*");
+            }
+            System.out.println(); // Move to the next line
+        }
 
 
 
