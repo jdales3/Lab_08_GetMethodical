@@ -123,7 +123,57 @@ public class SafeInput
         pipe.nextLine(); // clear newline from Scanner buffer
         return value;
     }
+    public static boolean getYNConfirm(Scanner pipe, String prompt)
+    {
+        boolean isValid = false;
+        boolean answer = false;
+        do
+        {
+            System.out.print("\n" + prompt + " [Y/N]: ");
+            String input = pipe.nextLine().trim().toUpperCase();
+            if (input.equals("Y") || input.equals("N"))
+            {
+                isValid = true;
+                answer = input.equals("Y");
+            }
+            else
+            {
+                System.out.println("Invalid input. Please enter Y or N.");
+            }
+        }
+        while (!isValid);
+        return answer;
+    }
+    public static String getRegExString(Scanner pipe, String prompt, String regEx)
+    {
+        String value;
+        boolean isValid = false;
+        do
+        {
+            System.out.print("\n" + prompt + ": ");
+            value = pipe.nextLine().trim();
+            if (value.matches(regEx))
+            {
+                isValid = true;
+            }
+            else
+            {
+                System.out.println("Invalid input. Please enter a string matching the pattern: " + regEx);
+            }
+        }
+        while (!isValid);
+        return value;
+    }
+    public static void prettyHeader(String msg)
+    {
+        int totalWidth = 60;
+        int msgWidth = msg.length() + 6; // Including stars and spaces
+        int sideSpaces = (totalWidth - msgWidth) / 2;
 
+        System.out.println("*".repeat(totalWidth));
+        System.out.println("***" + " ".repeat(sideSpaces) + msg + " ".repeat(sideSpaces) + "***");
+        System.out.println("*".repeat(totalWidth));
+    }
 
 
 
