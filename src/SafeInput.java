@@ -208,6 +208,16 @@ public class SafeInput
             }
             System.out.println(); // Move to the next line
         }
+        /**
+        * Converts Celsius to Fahrenheit.
+        *
+        * @param celsius Celsius temperature to convert
+        * @return Equivalent Fahrenheit temperature
+        */
+    public static double CtoF(double celsius) {
+        return (celsius * 9 / 5) + 32;
+    }
+
 
 
 
